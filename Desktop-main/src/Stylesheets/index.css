@@ -1,0 +1,798 @@
+@font-face {
+	font-family: "Fira Mono Regular";
+	src: url("/public/fonts/FiraMono-Regular.otf");
+}
+
+@font-face {
+	font-family: "Fira Mono Bold";
+	src: url("/public/fonts/FiraMono-Bold.otf");
+}
+
+@font-face {
+	font-family: "Fira Mono Medium";
+	src: url("/public/fonts/FiraMono-Medium.otf");
+}
+
+@keyframes menuFadeIn {
+	from {
+		transform: rotateZ(20deg);
+		opacity: 0%;
+	}
+
+	to {
+		transform: rotateZ(0);
+		opacity: 100%;
+	}
+}
+
+@keyframes securityFadeIn {
+	from {
+		transform: translateY(15vh);
+		opacity: 0%;
+	}
+
+	to {
+		transform: rotateZ(0);
+		opacity: 100%;
+	}
+}
+
+@keyframes infoBox0 {
+	from {
+		transform: translateX(-10vw) translateY(-10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes infoBox1 {
+	from {
+		transform: translateY(-10vh);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes infoBox2 {
+	from {
+		transform: translateX(10vw) translateY(-10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes infoBox3 {
+	from {
+		transform: translateX(-10vw) translateY(10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes infoBox4 {
+	from {
+		transform: translateY(10vh);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes infoBox5 {
+	from {
+		transform: translateX(10vw) translateY(10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes ContactBox0 {
+	from {
+		transform: translateX(-10vw) translateY(-10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes ContactBox1 {
+	from {
+		transform: translateX(10vw) translateY(-10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes ContactBox2 {
+	from {
+		transform: translateX(-10vw) translateY(10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes ContactBox3 {
+	from {
+		transform: translateX(10vw) translateY(10vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes SettingBox0 {
+	from {
+		transform: translateX(8vw) translateY(8vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes SettingBox1 {
+	from {
+		transform: translateX(-8vw) translateY(8vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes SettingBox2 {
+	from {
+		transform: translateX(8vw) translateY(-8vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+@keyframes SettingBox3 {
+	from {
+		transform: translateX(-8vw) translateY(-8vh);
+	}
+
+	to {
+		transform: translateX(0) translateY(0);
+	}
+}
+
+:root {
+	color-scheme: only light;
+}
+
+body {
+	font-family: "Fira Mono Regular";
+	margin: 0;
+	overflow-x: hidden;
+	color: black;
+}
+
+.App {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	margin-top: calc(3vmax + 1.5vmax);
+}
+
+.Main {
+	width: 100vw;
+	margin-top: calc(3vmax + 1.5vmax);
+	min-height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.MenuBar {
+	position: fixed;
+	top: 0;
+	width: 100vw;
+	background-color: #403F4C;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	z-index: 5;
+}
+
+.MenuBarTitle {
+	text-shadow: 0 0 2.5vmax #F5FEF5;
+	color: #F5FEF5;
+	font-size: 2.5vmax;
+	margin: 0 auto;
+	cursor: pointer;
+}
+
+.SideMenu {
+	position: absolute;
+	background-color: #F5FEF5;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	width: 30vw;
+	top: calc(3vmax + 1.5vmax);
+	transform: translateX(calc(-30vw - 4vw));
+	transition-duration: 300ms;
+	box-shadow: 0.5vw 5vh 5vmax rgba(0, 0, 0, 0.75);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+}
+
+.SideMenuElement {
+	width: 22vw;
+	padding: 2vh 2vw;
+	background-color: #F5FEF5;
+	border-radius: 0.5vmax;
+	font-size: 2.5vh;
+	cursor: pointer;
+	color: black;
+	text-decoration: none;
+	margin: 0 2vw;
+	margin-top: 2vh;
+	border-radius: 0.5vmax;
+	box-shadow: none;
+	transition-duration: 200ms;
+}
+
+.SideMenuElement:hover {
+	background-color: #D9D9D9;
+	box-shadow: 0 0.5vh 1vmax rgba(0, 0, 0, 0.25);
+}
+
+.MenuButton {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+	width: 3.5vmax;
+	height: 3vmax;
+	padding: 0.75vmax;
+	cursor: pointer;
+}
+
+.MenuButton div {
+	background-color: rgba(255, 255, 255, 0.8);
+	box-shadow: -4px 4px 8px rgba(255, 255, 255, 0.25);
+	height: 0.5vmax;
+	width: 1.5vw;
+	transition-duration: 200ms;
+}
+
+.MenuButton div:nth-child(1) {
+	width: 3.5vw;
+}
+
+.MenuButton div:nth-child(2) {
+	width: 2.5vw;
+}
+
+.MenuLogo {
+	width: 3.6vmax;
+	height: 3vmax;
+	padding: 0.75vmax;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1vw;
+}
+
+.AllMenus {
+	margin-top: 3vh;
+}
+
+.Dish {
+	background-repeat: no-repeat !important;
+	background-size: cover !important;
+	background-position: center !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border-radius: 0.5vmax;
+	padding: 1vh 1vw;
+	width: 12vw;
+	height: 15vh;
+	background-color: #B3B3B3;
+	border: 0.2vmax solid #F5FEF5;
+}
+
+.DishContent {
+	font-size: 2vh;
+	text-align: center;
+	margin: auto 0;
+}
+
+.DishTitle {
+	font-size: 2.5vh;
+	font-family: 'Fira Mono Medium';
+}
+
+.MenusEvening {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100vw;
+	margin: 3vh 0;
+}
+
+.Menus {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	width: 100vw;
+}
+
+.Menu {
+	display: flex;
+	flex-direction: column;
+	background-color: #D9D9D9;
+	align-items: center;
+	border: 0.3vw solid#B3B3B3;
+	border-radius: 0.5vmax;
+	padding: 1vh 1vw;
+	font-size: large;
+	font-weight: bold;
+	box-shadow: 0.5vw 1vh 2vmax rgba(0, 0, 0, 0.25);
+	height: max-content;
+	z-index: 1;
+	animation-name: menuFadeIn;
+	animation-fill-mode: forwards;
+	animation-duration: 150ms;
+	opacity: 0;
+}
+
+.MenuAnimated0 {
+	animation-delay: 0ms;
+}
+
+.MenuAnimated1 {
+	animation-delay: 70ms;
+}
+
+.MenuAnimated2 {
+	animation-delay: 140ms;
+}
+
+.MenuAnimated3 {
+	animation-delay: 210ms;
+}
+
+.MenuAnimated4 {
+	animation-delay: 280ms;
+}
+
+.MenuContent {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 1vh;
+	font-weight: normal;
+	gap: 1vh;
+}
+
+.MenuWaiting {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 0.5vmax;
+	padding: 1vh 1vw;
+	width: 20vw;
+	height: 15vh;
+	background-color: #B3B3B3;
+	border: 0.2vmax solid #F5FEF5;
+	text-align: center;
+}
+
+.WaitingError {
+	font-size: 2vw;
+	align-items: center;
+	justify-content: center;
+}
+
+.E404 {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 2vmax;
+}
+
+.SideMenuClickHanlder {
+	background-color: rgba(0, 0, 0, 0);
+	position: absolute;
+	width: 70vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	z-index: 3;
+	left: 30vw;
+}
+
+.Settings {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.Setting {
+	background-color: #B3B3B3;
+	border-radius: 0.5vmax;
+	width: 25vw;
+	height: 30vh;
+	padding: 2vh 2vw;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-evenly;
+	margin: 0 5vw;
+	cursor: pointer;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.25);
+	transition-duration: 200ms;
+	animation-duration: 200ms;
+}
+
+.SettingAnimated0 {
+	animation-name: SettingBox0;
+}
+
+.SettingAnimated1 {
+	animation-name: SettingBox1;
+}
+
+.SettingAnimated2 {
+	animation-name: SettingBox2;
+}
+
+.SettingAnimated3 {
+	animation-name: SettingBox3;
+}
+
+.Setting:hover {
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5);
+	background-color: #D9D9D9;
+}
+
+.red {
+	background-color: rgb(255, 94, 94);
+}
+
+.red:hover {
+	background-color: rgb(255, 110, 110);
+}
+
+.SettingTitle {
+	font-size: 2.5vmax;
+	font-weight: bold;
+	letter-spacing: 0.2vw;
+}
+
+.SettingDesc {
+	font-size: 2vh;
+}
+
+.Check {
+	border-radius: 0.5vmax;
+	height: 4vmax;
+	width: 4vmax;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.Informations {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+}
+
+.ContactBox {
+	background-color: #B3B3B3;
+	padding: 4vh 4vw;
+	border-radius: 0.5vmax;
+	width: 25vw;
+	font-size: 2vh;
+	height: 20vh;
+	margin: 0 5vw;
+	transition-duration: 200ms;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.25);
+	animation-duration: 200ms;
+}
+
+.ContactBoxHovered:hover {
+	background-color: #D9D9D9;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5);
+}
+
+.ContactBoxAnimated0 {
+	animation-name: ContactBox0;
+}
+
+.ContactBoxAnimated1 {
+	animation-name: ContactBox1;
+}
+
+.ContactBoxAnimated2 {
+	animation-name: ContactBox2;
+}
+
+.ContactBoxAnimated3 {
+	animation-name: ContactBox3;
+}
+
+a {
+	color: initial;
+	text-decoration: none;
+}
+
+.InfoBox {
+	background-color: #B3B3B3;
+	padding: 4vh 4vw;
+	border-radius: 0.5vmax;
+	width: 22vw;
+	font-size: 1vw;
+	height: 20vh;
+	animation-duration: 250ms;
+	transition-duration: 200ms;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.25);
+}
+
+.InfoBoxContact:hover {
+	background-color: #D9D9D9;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5);
+}
+
+.InfoBoxTitle {
+	font-size: 1.5vw;
+	font-weight: bold;
+	margin-bottom: 3vh;
+}
+
+.InfoBoxAnimate0 {
+	animation-name: infoBox0;
+}
+
+.InfoBoxAnimate1 {
+	animation-name: infoBox1;
+}
+
+.InfoBoxAnimate2 {
+	animation-name: infoBox2;
+}
+
+.InfoBoxAnimate3 {
+	animation-name: infoBox3;
+}
+
+.InfoBoxAnimate4 {
+	animation-name: infoBox4;
+}
+
+.InfoBoxAnimate5 {
+	animation-name: infoBox5;
+}
+
+.Contact {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	flex-wrap: wrap;
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+}
+
+.MonthSelection {
+	border-radius: 0.3vmax;
+	border: none;
+	outline: none;
+	width: 2.1vw;
+	height: 2.1vw;
+	font-size: 2vmax;
+	margin: 1vh 0;
+}
+
+.Calendar {
+	width: 100vw;
+	display: flex;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	gap: 1vw;
+	color: black;
+}
+
+.MenuPasted {
+	background-color: #B3B3B3;
+}
+
+.ExploreHeaderBox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	font-size: 1.5vmax;
+	margin: 1vh 0;
+	gap: 1vw;
+}
+
+.SecuritySeparator {
+	height: 1px;
+	width: 10vw;
+	background-color: black;
+}
+
+.SecurityBox {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	text-align: center;
+	height: 16vh;
+	width: 15vw;
+	padding: 2vh 2vw;
+	border-radius: 0.5vmax;
+	background-color: #B3B3B3;
+	transition-duration: 150ms;
+	animation-name: securityFadeIn;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.25);
+	transition-duration: 200ms;
+}
+
+.SecurityBox1 {
+	animation-duration: 200ms;
+}
+
+.SecurityBox2 {
+	animation-duration: 100ms;
+}
+
+.SecurityBox3 {
+	animation-duration: 200ms;
+}
+
+.SecurityBox:hover {
+	background-color: #D9D9D9;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.5);
+}
+
+.SecurityPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 8vh;
+	padding-bottom: 10vh;
+}
+
+.SecurityBoxs {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	align-items: center;
+	justify-content: center;
+	width: 80vw;
+	column-gap: 8vw;
+	row-gap: 8vh;
+}
+
+.SecurityText {
+	padding: 2vh;
+	max-width: 80vw;
+	background-color: #D9D9D9;
+	border-radius: 0.5vmax;
+	box-shadow: 0 0 1vmax rgba(0, 0, 0, 0.25);
+	margin-top: 8vh;
+}
+
+.SecurityRate {
+	height: 5vh;
+	padding: 0vh 1vw;
+	border-radius: 0.5vh;
+	text-align: center;
+	display: flex;
+	align-items: center;
+}
+
+.SecurityRate.green {
+	background-color: #00a851;
+}
+
+.SecurityRate.yellow {
+	background-color: #EE8200;
+}
+
+.SecurityRate.orange {
+	background-color: #E73C09;
+}
+
+.legalBox {
+	display: flex;
+	flex-direction: column;
+	color: black;
+	gap: 1.9vh;
+}
+
+.legalBoxs {
+	gap: 4.5vh;
+	width: 70vw;
+	padding: 4vh;
+	margin-top: 2vh;
+	border-radius: 0.5vmax;
+	display: flex;
+	flex-direction: column;
+	background-color: #D9D9D9;
+}
+
+.legalTitle {
+	font-size: 3vh;
+}
+
+.legalContent {
+	font-size: 2.25vh;
+	line-height: 2.9vh;
+}
+
+.legalPage {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+@media (max-width: 1100px) {
+	.Menu:nth-child(5) {
+		display: none;
+	}
+
+	.Dish {
+		width: 15vw;
+	}
+}
+
+@media (max-width: 900px) {
+
+	.Menu:nth-child(4),
+	.Menu:nth-child(5) {
+		display: none;
+	}
+
+	.Dish {
+		width: 23vw;
+	}
+}
+
+@media (max-width: 650px) {
+
+	.Menu:nth-child(3),
+	.Menu:nth-child(4),
+	.Menu:nth-child(5) {
+		display: none;
+	}
+
+	.Dish {
+		width: 35vw;
+	}
+}

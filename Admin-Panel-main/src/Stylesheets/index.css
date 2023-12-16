@@ -1,0 +1,853 @@
+@font-face {
+	font-family: "Fira Mono Regular";
+	src: url("/public/fonts/FiraMono-Regular.otf");
+}
+
+@font-face {
+	font-family: "Fira Mono Bold";
+	src: url("/public/fonts/FiraMono-Bold.otf");
+}
+
+@font-face {
+	font-family: "Fira Mono Medium";
+	src: url("/public/fonts/FiraMono-Medium.otf");
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(360deg);
+	}
+
+	to {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes popUp {
+	0% {
+		transform: translateY(0);
+	}
+
+	20% {
+		transform: translateY(22vh);
+	}
+
+	80% {
+		transform: translateY(22vh);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
+}
+
+:root {
+	color-scheme: only light;
+}
+
+*:focus {
+	outline: none;
+}
+
+body {
+	font-family: "Fira Mono Regular", "Courier New";
+	margin: 0;
+	overflow-x: hidden;
+	color: black;
+	background-color: #403F4C;
+}
+
+a {
+	color: initial;
+	text-decoration: none;
+}
+
+.App {
+	width: 100vw;
+	height: max-content;
+	margin-top: calc(3vmax + 1.5vmax);
+}
+
+.MenuBar {
+	position: absolute;
+	top: 0;
+	width: 100vw;
+	background-color: #B3B3B3;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 4.5vmax;
+	z-index: 2;
+}
+
+.MenuBarTitle {
+	text-decoration: none;
+	text-shadow: 0 0 2.5vmax black;
+	color: black;
+	font-size: 2.5vmax;
+	cursor: pointer;
+	text-align: center;
+}
+
+.MenuLogo {
+	width: 3.6vmax;
+	height: 3vmax;
+	padding: 0.75vmax;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1vw;
+}
+
+.LogoutButton {
+	height: 3vmax;
+	width: 3.6vmax;
+	padding: 0.75vmax;
+	margin-left: 1vw;
+	cursor: pointer;
+}
+
+.Home {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.PageTitle {
+	font-size: 4.5vh;
+	text-align: center;
+	margin: 2vh 0;
+	color: #F5FEF5;
+	font-weight: bold;
+}
+
+.HomeBoxes {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 2vw;
+	flex-wrap: wrap;
+	margin: auto 0;
+}
+
+.homeButtons {
+	width: 25vw;
+	height: 16vh;
+	background-color: #B3B3B3;
+	font-size: 4.5vh;
+	font-weight: bold;
+	border-radius: 2.5vh;
+	padding: 20vh 8vh;
+	cursor: pointer;
+	box-shadow: 0 0 1vh rgba(0, 0, 0, 0.75);
+	transition-duration: 200ms;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.Info {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.infosButons {
+	width: max-content;
+	text-align: center;
+	font-size: 4.5vh;
+	font-weight: bold;
+	color: black;
+}
+
+.infoBox {
+	width: 26vw;
+	height: 16vh;
+	background-color: #B3B3B3;
+	border-radius: 2.5vh;
+	padding: 20vh 2vw;
+	cursor: pointer;
+	box-shadow: 0 0 1vh rgba(0, 0, 0, 0.75);
+	transition-duration: 300ms;
+	justify-content: space-around;
+	display: flex;
+	align-items: center;
+	transition-duration: 200ms;
+}
+
+.E404 {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	color: #F5FEF5;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.Index {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5vh;
+	font-size: 5vh;
+	color: white;
+	background-color: #403F4C;
+	width: 100vw;
+	height: 100vh;
+}
+
+.FormInput {
+	width: min-content;
+	height: 5vh;
+	margin: 0;
+	border: 0px solid white;
+	border-radius: 2vh;
+	background-color: #B3B3B3;
+	font-size: 4vh;
+	text-align: center;
+}
+
+.passwordBox {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 2vh;
+}
+
+.PasswordLogo {
+	width: 20vw;
+}
+
+.passwordText {
+	font-size: 10vh;
+	text-align: center;
+}
+
+.NumberRate {
+	width: 100vw;
+	height: 100vh;
+}
+
+.customTooltip {
+	background-color: #B3B3B3;
+	padding: 1vh;
+	border-radius: 0.5vw;
+	font-size: 2vh;
+}
+
+.LoginPage {
+	width: 100vw;
+	height: 98vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	margin-bottom: 2vh;
+}
+
+.LoginPage input {
+	margin-top: 10vh;
+	background-color: #55555c;
+	border: none;
+	color: #F5FEF5;
+	font-size: 2vmax;
+	border-radius: 0.5vmax;
+	padding: 2vh 2vw;
+}
+
+.LoginTitle {
+	font-size: 5vmax;
+	color: #F5FEF5;
+	text-align: center;
+	margin-left: 5vw;
+	margin-right: 5vw;
+}
+
+.LoginButton {
+	background-color: #55555c;
+	text-align: center;
+	color: #F5FEF5;
+	font-size: 2vmax;
+	border-radius: 0.5vmax;
+	padding: 2vh 2vw;
+	cursor: pointer;
+}
+
+.LoginLogo {
+	width: 20vw;
+}
+
+.ChartError {
+	width: 40vw;
+	height: max-content;
+	text-align: center;
+	color: #F5FEF5;
+	font-size: 5vh;
+}
+
+.ChartContainer,
+.ChartContainerAlways {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	flex-direction: column;
+	height: 80vh;
+	width: 100vw;
+}
+
+.NewMenu {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax - 7vh);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	margin-top: 16vh;
+}
+
+.MenuProgressBar {
+	height: 7vh;
+	width: 90vw;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0 auto;
+	position: absolute;
+	top: 10vh;
+}
+
+.MenuProgressBar div:nth-child(2n + 1) {
+	border-radius: 50%;
+	width: 2.5vw;
+	height: 2.5vw;
+	flex-shrink: 0;
+	z-index: 1;
+	scale: 1.1;
+}
+
+.MenuProgressBar div:nth-child(2n) {
+	width: 30vw;
+	height: 1vw;
+	z-index: 0;
+}
+
+.blueBar {
+	background-color: #4775FF;
+}
+
+.noneBar {
+	background-color: #B3B3B3;
+}
+
+.NewMenuTitle {
+	font-size: 5vh;
+	color: #F5FEF5;
+	width: 100vw;
+	text-align: center;
+}
+
+.PrevButton {
+	background-color: black;
+	width: 4vw;
+	height: 1vh;
+	display: flex;
+	align-items: center;
+}
+
+.PrevButton div {
+	width: 2vw;
+	height: 2vw;
+	border-left: 0.5vw solid black;
+	border-bottom: 0.5vw solid black;
+	transform: rotateZ(45deg);
+}
+
+.NextButton {
+	background-color: black;
+	width: 4vw;
+	height: 0.5vw;
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.NextButton div {
+	width: 2vw;
+	height: 2vw;
+	border-right: 0.5vw solid black;
+	border-top: 0.5vw solid black;
+	transform: rotateZ(45deg);
+}
+
+.NavButtonNext {
+	position: absolute;
+	right: 2vw;
+	bottom: 2vw;
+	background-color: #D9D9D9;
+	padding: 6vh;
+	border-radius: 1vmax;
+	cursor: pointer;
+}
+
+.NavButtonPrev {
+	position: absolute;
+	left: 2vw;
+	bottom: 2vw;
+	background-color: #D9D9D9;
+	padding: 6vh;
+	border-radius: 1vmax;
+	cursor: pointer;
+}
+
+.NewMenuContent {
+	margin-bottom: 5vh;
+}
+
+.EnterMenuDiv {
+	display: flex;
+	gap: 5vw;
+}
+
+.EnterMenu {
+	text-align: center;
+	font-size: 1.5vmax;
+	background-color: #D9D9D9;
+	width: max-content;
+	height: max-content;
+	border-radius: 1vmax;
+	display: flex;
+	flex-direction: column;
+}
+
+.EnterMenuContent {
+	display: flex;
+	flex-direction: column;
+	gap: 1vh;
+	padding: 2vh 2vw;
+}
+
+.EnterMenuContentContent {
+	width: 20vw;
+	height: 10vh;
+	padding: 2vh 2vw;
+	border-radius: 1vmax;
+	background-color: #B3B3B3;
+	border: none;
+	text-align: center;
+	font-family: "Fira Mono Regular";
+	font-size: 1vmax;
+	resize: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.MenuContentText {
+	margin: auto 0;
+	padding-bottom: 1vh;
+}
+
+.check {
+	border-radius: 0.5vmax;
+	height: 3vmax;
+	width: 3vmax;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+}
+
+.EnterMenuHeader {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 1vh 1vh;
+}
+
+.EnterMenuDay {
+	margin: 1.2vh auto;
+	padding-left: 3vw;
+	font-weight: bold;
+}
+
+.EnterMenuCheck {
+	cursor: pointer;
+	border-radius: 0.5vmax;
+}
+
+.EnterMenuError {
+	display: flex;
+	flex-direction: column;
+	font-family: "Fira Mono Regular";
+	margin: 2vh 2vw;
+	margin-bottom: 43vh;
+}
+
+.EnterMenuError textarea,
+.EnterMenuError div {
+	font-size: 1vmax;
+	resize: none;
+	text-align: center;
+	width: 20vw;
+	height: 10vh;
+	padding: 2vh 2vw;
+	border-radius: 1vmax;
+	background-color: #B3B3B3;
+	border: none;
+}
+
+.MenuDateSelection {
+	border-radius: 0.3vmax;
+	border: none;
+	height: 5vh;
+	margin-bottom: 40vh;
+	background-color: #403F4C;
+	color: #F5FEF5;
+	font-size: 2vmax;
+}
+
+.EnterMenuDayTheme {
+	margin: 1.2vh auto;
+	font-weight: bold;
+}
+
+.SelectTheme {
+	width: 2.5vh;
+	height: 2.5vh;
+	background-color: #D9D9D9;
+	cursor: pointer;
+	border: none;
+	border-radius: 0.2vmax;
+	text-align: center;
+	align-self: flex-end;
+}
+
+.SelectTheme option {
+	border-radius: 0;
+	font-size: 1vmax;
+	padding: none;
+	margin: none;
+}
+
+.DishStyleNone {
+	background-color: #B3B3B3;
+	border: 0.2vmax solid #D9D9D9;
+}
+
+.ValidButtonNav {
+	position: absolute;
+	right: 2vw;
+	bottom: 2vw;
+	background-color: #08A47C;
+	padding: 6vh;
+	border-radius: 1vmax;
+	cursor: pointer;
+}
+
+.NewMenuValid {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.NewMenuValidHeader {
+	width: 100vw;
+	height: 10vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2vw;
+	color: #F5FEF5;
+	font-size: 3vh;
+	text-align: center;
+}
+
+.NewMenuValidBody {
+	display: flex;
+	gap: 2vw;
+}
+
+.smallDot {
+	border-radius: 50%;
+	background-color: black;
+	width: 0.6vw;
+	height: 0.6vw;
+}
+
+.SendNewMenu {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: #F5FEF5;
+	font-size: 3vh;
+	gap: 5vh;
+}
+
+.MenuSentButton {
+	background-color: #B3B3B3;
+	padding: 2vh 2vw;
+	border-radius: 0.5vw;
+}
+
+.DeleteMenu {
+	width: 100vw;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.MenuDateSelectionDelete {
+	border-radius: 0.3vmax;
+	border: none;
+	height: 5vh;
+	background-color: #403F4C;
+	color: #F5FEF5;
+	font-size: 2vmax;
+}
+
+.DeleteMenuMessage {
+	color: #F5FEF5;
+	font-size: 2vmax;
+}
+
+.Chart,
+.ChartAlways {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+	height: calc(100vh - 3vmax - 1.5vmax);
+	width: 100vw;
+}
+
+.Chart div,
+.ChartAlways div {
+	margin: 0;
+}
+
+.refreshIcon {
+	width: 6vh;
+	height: 6vh;
+	position: absolute;
+	top: 9.5vh;
+	right: 1.5vw;
+	cursor: pointer;
+	padding: 2vh 2vh;
+	border-radius: 50%;
+}
+
+.rotate {
+	animation-duration: 2000ms;
+	animation-name: rotate;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+}
+
+.monthSelection {
+	border-radius: 0.3vmax;
+	border: none;
+	height: 5vh;
+	position: absolute;
+	top: 17vh;
+	background-color: #403F4C;
+	color: #F5FEF5;
+	font-size: 2vmax;
+	z-index: 2;
+}
+
+.LoginError {
+	color: #F5FEF5;
+	font-size: 2vmax;
+	padding: 1vh 0;
+	height: 6vh;
+}
+
+.legendTickLine {
+	background-color: rgba(231, 70, 83, 0.8);
+	width: 2vmax;
+	height: 0.2vmax;
+}
+
+.legend {
+	display: flex;
+	align-items: center;
+	gap: 0.5vmax;
+	color: #F5FEF5;
+}
+
+.legends {
+	gap: 0.5vh;
+	padding: 1vh;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+
+.ping {
+	width: max-content;
+	height: max-content;
+	position: absolute;
+	top: -10vh;
+	right: 12vw;
+	cursor: default;
+	padding: 2vh 2vh;
+	background-color: #D9D9D9;
+	display: flex;
+	align-items: center;
+	justify-items: center;
+	text-align: center;
+	border-radius: 1vh;
+}
+
+.PingAnimate {
+	animation-duration: 3000ms;
+	animation-name: popUp;
+}
+
+.rotateError {
+	margin-top: 0vh;
+	width: 0vw;
+	display: none;
+	text-align: center;
+	color: #D9D9D9;
+}
+
+.NewMenuRotateError {
+	margin-top: 15vh;
+	width: 100vw;
+	display: none;
+	text-align: center;
+	color: white;
+}
+
+.DayEvening {
+	width: 6vh;
+	height: 6vh;
+	position: absolute;
+	top: 9.5vh;
+	right: 6vw;
+	cursor: pointer;
+	padding: 2vh 2vh;
+	border-radius: 50%;
+}
+
+
+@media (min-width: 600px) {
+	.green:hover {
+		background-color: #08A47C;
+	}
+
+	.blue:hover {
+		background-color: #4775FF;
+	}
+
+	.red:hover {
+		background-color: #E74855;
+	}
+
+	.yellow:hover {
+		background-color: #FFC482;
+	}
+}
+
+/* phone  */
+@media (max-width: 600px) {
+	.LoginLogo {
+		width: 70vw;
+		margin-top: 1vh;
+	}
+
+	.HomeBoxes {
+		margin: 0px;
+	}
+
+	.homeButtons {
+		font-size: 6vw;
+	}
+
+	.LoginTitle {
+		font-size: 4.5vmax;
+	}
+
+	.passwordBox {
+		width: 45vw;
+	}
+
+	.LoginPage input {
+		margin-top: 5vh;
+	}
+
+	.homeButtons {
+		width: 60vw;
+		padding: 0px 8vh;
+	}
+
+	.infosButons {
+		font-size: 6vw;
+	}
+
+	.infoBox {
+		padding: 0px 8vh;
+	}
+
+	.NewMenu {
+		display: none;
+	}
+
+	.NewMenuRotateError {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+@media (orientation: landscape) and (max-width: 600px) {
+	.ChartContainer {
+		display: initial;
+	}
+
+	.Chart {
+		display: initial;
+	}
+
+	.rotateError {
+		display: none;
+	}
+
+}
+
+@media (orientation: portrait) and (max-width: 600px) {
+	.ChartContainer {
+		display: none;
+	}
+
+	.Chart {
+		display: none;
+	}
+
+	.rotateError {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 15vh;
+		width: 100vw;
+		text-align: center;
+	}
+}
