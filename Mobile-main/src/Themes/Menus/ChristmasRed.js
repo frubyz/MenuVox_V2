@@ -1,0 +1,7 @@
+"use strict";
+exports.__esModule = true;
+var ChristmasRed = {
+    'backgroundImage': 'url("https://mobile.menuvox.fr/Assets/Christmas/2.png"), linear-gradient(#E6361A 50%, #CD2B17 50%)',
+    'border': '0.2vmax solid #E6361A'
+};
+exports["default"] = ChristmasRed;
