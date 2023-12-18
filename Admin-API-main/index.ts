@@ -1,4 +1,4 @@
-import cors from 'cors';
+//import cors from 'cors';
 import express from 'express';
 import fs from 'fs';
 import https from 'https';
@@ -19,11 +19,11 @@ import getRatesMonthEvening from './Functions/getRatesMonthEvening';
 
 const localPath = '/home/pi/datas/';
 
-const key = fs.readFileSync('../certs/selfsigned.key');
-const cert = fs.readFileSync('../certs/selfsigned.crt');
+//const key = fs.readFileSync('../certs/selfsigned.key');
+//const cert = fs.readFileSync('../certs/selfsigned.crt');
 const options = {
-	key: key,
-	cert: cert
+	//key: key,
+	//cert: cert
 };
 
 const server = https.createServer(options, app);
@@ -32,8 +32,8 @@ server.listen(8081, () => {
 	console.log('Server started !');
 });
 
-app.use(express.json());
-app.use(cors());
+//app.use(express.json());
+//app.use(cors());
 app.use((err: { status: number }, req: any, res: any, next: Function) => {
 	if (err instanceof SyntaxError && err.status === 400 && 'body' in err) {
 		return res.sendStatus(400).json({ error: 1, msg: 'Invalid body' });

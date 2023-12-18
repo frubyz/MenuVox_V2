@@ -14,11 +14,11 @@ import rateEvening from './Functions/RateEvening';
 
 const localPath = '/home/pi/datas/';
 
-const key = fs.readFileSync('../certs/selfsigned.key');
-const cert = fs.readFileSync('../certs/selfsigned.crt');
+//const key = fs.readFileSync('../certs/selfsigned.key');
+//const cert = fs.readFileSync('../certs/selfsigned.crt');
 const options = {
-	key: key,
-	cert: cert
+	//key: key,
+	//cert: cert
 };
 
 const server = https.createServer(options, app);
